@@ -1,33 +1,21 @@
 terraform {
   required_version = ">= 1.1.2"
-  # required_providers {
-  #   azurerm = {
-  #     source  = "hashicorp/azurerm"
-  #     version = "~>4.50"
-  #   }
-  # }
-  # backend "azurerm" {}
   cloud {
 
-    organization = "alxmatsorg01"
+    organization = "alxmatsorg01" # "{{ORGANIZATION_NAME}}"
 
     workspaces {
-      name = "cli-sandbox-01"
+      name = "cli-sandbox-01" # "{{WORKSPACE_NAME}}"
+    }
+  }
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>4.50"
     }
   }
 }
-
-# terraform {
-#   cloud {
-#     organization = "{{ORGANIZATION_NAME}}"
-
-#     workspaces {
-#       name = "{{WORKSPACE_NAME}}"
-#     }
-#   }
-
-#   required_version = ">= 1.1.2"
-# }
 
 provider "azurerm" {
   use_oidc = true
