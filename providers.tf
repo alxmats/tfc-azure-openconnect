@@ -1,9 +1,7 @@
 terraform {
   required_version = ">= 1.1.2"
   cloud {
-
     organization = "alxmatsorg01" # "{{ORGANIZATION_NAME}}"
-
     workspaces {
       name = "cli-sandbox-01" # "{{WORKSPACE_NAME}}"
     }
@@ -18,7 +16,7 @@ terraform {
 }
 
 provider "azurerm" {
-  use_oidc = true
+  # use_oidc = true
   features {
     # key_vault {
     #   purge_soft_delete_on_destroy = true
